@@ -52,16 +52,36 @@ class LedBoard():
             t = time.time()
 
     def powerup(self):                     # lyssekvens under oppstart, tar 6 sek.
-        pass
+        start_time = t = time.time()
+        while t - start_time < 2:
+            for led in range(0,2):
+                self.light_led(led, 0.01)
+        while t - start_time > 2 and t - start_time < 4:
+            for led in range(0,4):
+                self.light_led(led, 0.01)
+        while t - start_time > 4 and t - start_time < 6:
+            for led in range(0,6):
+                self.light_led(led, 0.01)
 
     def powerdown(self):            # lyssekvens shutdown
-        pass
+        start_time = t = time.time()
+        while t - start_time < 2:
+            for led in range(0, 6):
+                self.light_led(led, 0.01)
+        while t - start_time > 2 and t - start_time < 4:
+            for led in range(0, 4):
+                self.light_led(led, 0.01)
+        while t - start_time > 4 and t - start_time < 6:
+            for led in range(0, 2):
+                self.light_led(led, 0.01)
 
 #def ledTest():
-#    l = LedBoard()
+    #l = LedBoard()
     #l.light_led(5,5)
-#    l.flash_all_leds(6)
+    #l.flash_all_leds(6)
     #l.twinkle_all_leds(2)
+    ##l.powerup()
+    #l.powerdown()
 
 #if __name__ == "__main__":
 #    ledTest()
