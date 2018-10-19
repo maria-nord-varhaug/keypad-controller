@@ -75,16 +75,16 @@ class LedBoard():
             for led in range(0, 2):
                 self.light_led(led, 0.01)
 
-#def ledTest():
-    #l = LedBoard()
-    #l.light_led(5,5)
-    #l.flash_all_leds(6)
-    #l.twinkle_all_leds(2)
-    ##l.powerup()
-    #l.powerdown()
+def ledTest():
+    l = LedBoard()
+    l.light_led(5,5)
+    l.flash_all_leds(6)
+    l.twinkle_all_leds(2)
+    l.powerup()
+    l.powerdown()
 
-#if __name__ == "__main__":
-#    ledTest()
+if __name__ == "__main__":
+    ledTest()
 
 
 
