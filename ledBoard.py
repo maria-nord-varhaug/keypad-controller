@@ -87,7 +87,7 @@ class LedBoard():
 
     def lightshow(self):
         start_time = t = time.time()
-        while t - start_time < 4:
+        while t - start_time < 4: #one
             self.light_led(0,0.1)
             self.light_led(1,0.1)
             self.light_led(3,0.1)
