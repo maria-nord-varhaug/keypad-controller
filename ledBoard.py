@@ -38,8 +38,11 @@ class LedBoard():
     def flash_all_leds(self, duration):      # Flash all 6 LEDs on and off for <duration> seconds
         t = start_time = time.time()         # tiden i euyeblikket metoden blir kjeurt
         while t - start_time < duration:    # sjekker etter hver for loop om starttid - naatid < duration
-            for led in range(0, 6):
-                self.light_led(led, 0.005)     # Vet ikke helt hvor lenge hvert skal flashe
+            i = 0
+            while i < 3:
+                for led in range(0, 6):
+                    self.light_led(led, 0.005)
+                i += 1
             time.sleep(1)                  # 0.5 sekunder mellom hvert blink <3
             t = time.time()
 
@@ -81,6 +84,18 @@ class LedBoard():
             for led in range(0, 2):
                 self.light_led(led, 0.001)
             t = time.time()
+
+    def lightshow(self):
+        start_time = t = time.time()
+        while t - start_time < 4:
+            self.light_led(0,0.1)
+            self.light_led(1,0.1)
+            self.light_led(3,0.1)
+            self.light_led(5,0.1)
+            self.light_led(4,0.1)
+            self.light_led(2,0.1)
+            t = time.time()
+
 
 def ledTest():
     l = LedBoard()
