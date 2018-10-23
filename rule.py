@@ -3,7 +3,6 @@ from inspect import isfunction
 
 class Rule():
     def __init__(self, state1, state2, signal, action):
-        # TODO verifisering?
         self.state1 = state1
         self.state2 = state2
         self.signal = signal

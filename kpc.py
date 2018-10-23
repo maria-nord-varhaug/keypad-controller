@@ -82,7 +82,6 @@ class KPC():
 
     def fully_active_agent(self, signal):
         self.reset_agent(signal)
-        # TODO mer?
 
     def verify_new_password(self, signal):
         if len(self.passcode_accumulator) >= 4:

@@ -61,7 +61,7 @@ class KeyPad():
         x = self.do_pulling()
         while x is None:
             x = self.do_pulling()
-        print(x)  # TODO remove
+        print(x)
         return x
 
     def __exit__(self, exc_type, exc_val, exc_tb):
