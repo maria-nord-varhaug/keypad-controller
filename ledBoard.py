@@ -38,8 +38,8 @@ class LedBoard():
     def flash_all_leds(self, duration):      # Flash all 6 LEDs on and off for <duration> seconds
         t = start_time = time.time()         # tiden i euyeblikket metoden blir kjeurt
         while t - start_time < duration:    # sjekker etter hver for loop om starttid - naatid < duration
-            for led in range(0, 5):
-                self.light_led(led, 0.01)     # Vet ikke helt hvor lenge hvert skal flashe
+            for led in range(0, 6):
+                self.light_led(led, 0.005)     # Vet ikke helt hvor lenge hvert skal flashe
             time.sleep(1)                  # 0.5 sekunder mellom hvert blink <3
             t = time.time()
 
@@ -55,36 +55,48 @@ class LedBoard():
         start_time = t = time.time()
         while t - start_time < 2:
             for led in range(0,2):
-                self.light_led(led, 0.01)
+                self.light_led(led, 0.001)
+            t = time.time()
         while t - start_time > 2 and t - start_time < 4:
             for led in range(0,4):
-                self.light_led(led, 0.01)
+                self.light_led(led, 0.001)
+            t = time.time()
         while t - start_time > 4 and t - start_time < 6:
             for led in range(0,6):
-                self.light_led(led, 0.01)
+                self.light_led(led, 0.001)
+            t = time.time()
+
 
     def powerdown(self):            # lyssekvens shutdown
         start_time = t = time.time()
         while t - start_time < 2:
             for led in range(0, 6):
-                self.light_led(led, 0.01)
+                self.light_led(led, 0.001)
+            t = time.time()
         while t - start_time > 2 and t - start_time < 4:
             for led in range(0, 4):
-                self.light_led(led, 0.01)
+                self.light_led(led, 0.001)
+            t = time.time()
         while t - start_time > 4 and t - start_time < 6:
             for led in range(0, 2):
-                self.light_led(led, 0.01)
+                self.light_led(led, 0.001)
+            t = time.time()
 
 def ledTest():
     l = LedBoard()
-    l.light_led(5,5)
+    #l.light_led(5,5)
     l.flash_all_leds(6)
-    l.twinkle_all_leds(2)
-    l.powerup()
-    l.powerdown()
+    #l.twinkle_all_leds(2)
+    #l.powerup()
+    #l.powerdown()
 
 if __name__ == "__main__":
-    ledTest()
+    try:
+        ledTest()
+    except KeyboardInterrupt:
+        pass
+    finally:
+        GPIO.cleanup()
 
 
 
