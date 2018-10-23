@@ -5,7 +5,7 @@ class LedBoard():
     #  0=L, 1=H, -1=Input
     def __init__(self):
         GPIO.setmode(GPIO.BCM)  # Gjeur at du ikke direkte kobler til pinnummeret, men til "label" pinnr
-        self.pins = [18, 23, 24]
+        self.pins = [12, 16, 20]
         self.ledmodes = [
             [1, 0, -1],  # led1
             [0, 1, -1],  # led2
